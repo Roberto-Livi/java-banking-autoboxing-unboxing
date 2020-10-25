@@ -28,6 +28,20 @@ public class Branch {
         Customer existingCustomer = findCustomer(customerName);
         if(existingCustomer != null) {
             existingCustomer.addTransaction(amount);
+            return true;
         }
+        return false;
     }
+
+    private Customer findCustomer(String customerName) {
+        for(int i = 0; i < this.customers.size(); i++) {
+            Customer checkedCustomer = this.customers.get(i);
+            if(checkedCustomer.getName().equals(customerName)){
+                return checkedCustomer;
+            }
+        }
+        return null;
+    }
+
+
 }
